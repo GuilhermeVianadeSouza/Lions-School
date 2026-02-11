@@ -193,20 +193,19 @@ footer{
     align-items: center;
     justify-content: center;
     
-    width: 45px;             /* Tamanho do círculo */
-    height: 45px;            /* Tamanho do círculo */
+    width: 45px; 
+    height: 45px;            
     
-    border: 2px solid white; /* A borda branca */
-    border-radius: 50%;      /* Deixa perfeitamente redondo */
+    border: 2px solid white; 
+    border-radius: 50%;      
     
-    padding: 10px;           /* O "afastamento" entre o ícone e a borda */
+    padding: 10px;          
     cursor: pointer;
     transition: all 0.3s ease;
 }
 
-/* Efeito de destaque ao passar o mouse */
 .redes-sociais i:hover {
     background-color: white;
-    color: #1a1a1a;          /* O ícone fica escuro quando o fundo fica branco */
-    transform: scale(1.1);   /* Dá um leve pulinho */
+    color: #1a1a1a;          
+    transform: scale(1.1);   
 }
