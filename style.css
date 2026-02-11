@@ -153,30 +153,60 @@ main {
    ========================================================================== */
 
 footer{
-    height: 140px;
+    height: 100%;
     width: 100vw;
     background-color: #3347b0;
 }
 
 .rodape {
-    height: 100%;
-    width: 100%;
     display: flex;
-    flex-direction: row;
-    justify-content: space-around;
-}
-
-.contato-escola {
-    padding: 16px;
-    height: 80%;
-    display: flex;
-    justify-content: center;
-    flex-direction: column;
-    align-items: initial;
+    justify-content: space-between; 
+    align-items: center;
+    padding: 2rem 6rem;
     color: white;
-    gap: 0.5rem;
 }
 
 .contato-escola {
+    display: flex;
+    flex-direction: column;
+    gap: 0.8rem; 
+}
+
+.item-contato{
+    display: flex;
+    align-items: center;
+    gap: 1rem; 
+}
+
+.direitos-autorais{
     font-size: 20px;
+}
+
+.redes-sociais {
+    display: flex;
+    gap: 1.5rem; 
+    font-size: 1.5rem;
+}
+
+.redes-sociais i {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    
+    width: 45px;             /* Tamanho do círculo */
+    height: 45px;            /* Tamanho do círculo */
+    
+    border: 2px solid white; /* A borda branca */
+    border-radius: 50%;      /* Deixa perfeitamente redondo */
+    
+    padding: 10px;           /* O "afastamento" entre o ícone e a borda */
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+/* Efeito de destaque ao passar o mouse */
+.redes-sociais i:hover {
+    background-color: white;
+    color: #1a1a1a;          /* O ícone fica escuro quando o fundo fica branco */
+    transform: scale(1.1);   /* Dá um leve pulinho */
 }
