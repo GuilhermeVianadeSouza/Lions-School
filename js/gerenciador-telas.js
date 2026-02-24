@@ -23,7 +23,19 @@ export async function renderizarTelaAlunos(id_curso){
 
         const imagemAluno = document.createElement('img')
         imagemAluno.src = aluno.foto || '../img/boneco-exemplo.png'
+    
+        const nomeAluno = document.createElement('p')
+        nomeAluno.textContent = aluno.nome || 'Não encontrado'
+
+        cardAluno.append(imagemAluno, nomeAluno)
+
+        cardAluno.addEventListener('click', () => {
+            const idParaBusca = cardAluno.dataset.id_aluno
+            renderizarInformacoesAluno(idParaBusca)
+        })
+        listaAlunos.appendChild(cardAluno)
     });
+    conteudoMainAtual.replaceChildren(listaAlunos)
 }
 
 export function renderizarInformacoesAluno(){
