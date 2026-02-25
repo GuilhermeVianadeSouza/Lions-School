@@ -52,7 +52,7 @@ header {
     width: 48px;
 }
 
-.bnt-header h2 {
+.bnt-header span {
     color: white;
     font-size: 36px;
 }
@@ -61,7 +61,7 @@ header {
    MAIN (Principal/Conteudo)
    ========================================================================== */
 
-#container-principal {
+#container-principal.layout-home {
     display: flex;
     width: 100%;
     height: 100%;
