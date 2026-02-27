@@ -19,7 +19,7 @@ Css Destinado a segunda tela dos cards.
     width: 100%;
     margin-top: 2rem;        
     margin-bottom: 60px;     
-    color: #333;            
+    color: #3347B0;            
     text-transform: uppercase;
     letter-spacing: 1px;
 }
@@ -34,7 +34,7 @@ Css Destinado a segunda tela dos cards.
 
 
 .aluno-card {
-    background-color: #ffffff;
+    background-color: #3347B0;
     border-radius: 15px;
     padding: 2rem;
     display: flex;

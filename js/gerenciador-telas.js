@@ -101,9 +101,9 @@ dadosAluno.desempenho.forEach(item => {
     barra.style.height = `${nota}%`;
 
   
-    if (nota > 90) {
+    if (nota >= 75) {
         barra.style.backgroundColor = '#3347B0'; 
-    } else if (nota >= 75) {
+    } else if (nota >= 50) {
         barra.style.backgroundColor = '#FFC107'; 
     } else {
         barra.style.backgroundColor = '#E91E63'; 

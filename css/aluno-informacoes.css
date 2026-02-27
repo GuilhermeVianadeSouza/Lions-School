@@ -3,18 +3,21 @@
 * Conteudo Relacionado ao array do aluno em expecifico.
 *
 ********************************************************************/
-/* 1. Layout Principal (Dividindo a tela) */
+
 .layout-detalhes {
     display: flex;
     align-items: flex-start;
     justify-content: space-between;
     gap: 5rem;
-    padding-top: 4rem;
+    padding: 4rem;
 }
 
-/* 2. Lado Esquerdo: Card de Perfil */
+
 .perfil-aluno-container {
-    flex: 1; /* Ocupa menos espaço que o gráfico */
+    gap: 1rem;
+    width: 500px;
+    height: 500px;
+    flex: 1; 
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -25,9 +28,9 @@
 }
 
 .perfil-aluno-container img {
-    width: 200px;
-    height: 200px;
-    border-radius: 15px; /* Foto quadrada com cantos arredondados, estilo dashboard */
+    width: 400px;
+    height: 431px;
+    border-radius: 15px; 
     object-fit: cover;
     margin-bottom: 1.5rem;
     border: 5px solid #f0f0f0;
@@ -39,38 +42,39 @@
     color: #333;
 }
 
-/* 3. Lado Direito: Container do Gráfico */
+
 .grafico-container {
-    flex: 2; /* Ocupa o dobro do espaço do perfil */
+    flex: 2; 
     display: flex;
-    align-items: flex-end; /* ALINHA AS TORRES NA BASE */
+    align-items: flex-end; 
     justify-content: space-around;
-    height: 350px; /* ALTURA FIXA PARA O GRÁFICO EXISTIR */
+    height: 500px;
+    width: 500px; 
     background-color: #f9f9f9;
     padding: 2rem;
     border-radius: 20px;
-    border-bottom: 4px solid #ddd; /* Linha de base do gráfico */
+    border-bottom: 4px solid #ddd; 
 }
 
-/* 4. A Torre (Coluna do Gráfico) */
+
 .grafico-torre {
     display: flex;
     flex-direction: column;
     align-items: center;
-    justify-content: flex-end; /* Faz a barra crescer de baixo para cima */
+    justify-content: flex-end; 
     height: 100%;
     width: 60px;
 }
 
-/* 5. A Barra Colorida */
+
 .barra-valor {
     width: 100%;
-    border-radius: 8px 8px 0 0; /* Arredonda apenas o topo */
-    transition: height 1s ease-out; /* Efeito de animação ao carregar */
+    border-radius: 8px 8px 0 0; 
+    transition: height 1s ease-out; 
     position: relative;
 }
 
-/* Rótulo da Sigla (embaixo da barra) */
+
 .sigla-materia {
     margin-top: 1rem;
     font-weight: 800;
