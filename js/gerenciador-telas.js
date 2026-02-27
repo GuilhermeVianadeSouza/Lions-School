@@ -1,5 +1,5 @@
 'use strict'
-import {obterAlunosDeCursoDeterminado} from './api.js'
+import {obterAlunosDeCursoDeterminado, obterInformacaoAlunoEspecifico} from './api.js'
 
 const conteudoMainAtual = document.getElementById('container-principal')
 const templatePrincipal = document.getElementById('template-home')
@@ -11,7 +11,7 @@ export function renderizarTelaPrincipal() {
     conteudoMainAtual.replaceChildren(conteudo);
 
     atualizarBotaoNavegacaoHeader('Sair', () => {
-        console.log("Usuário deslogado");
+        
     })
     configuracaoBotoesHome()
 }
@@ -39,7 +39,7 @@ export async function renderizarTelaAlunos(id_curso){
     alunos.forEach(aluno => {
         const cardAluno = document.createElement('div')
         cardAluno.classList.add('aluno-card')
-        cardAluno.dataset.id_aluno = aluno.id_aluno
+        cardAluno.dataset.id = aluno.id
 
         const imagemAluno = document.createElement('img')
         imagemAluno.src = aluno.foto || '../img/boneco-exemplo.png'
@@ -50,7 +50,7 @@ export async function renderizarTelaAlunos(id_curso){
         cardAluno.append(imagemAluno, nomeAluno)
 
         cardAluno.addEventListener('click', () => {
-            const idParaBusca = cardAluno.dataset.id_aluno
+            const idParaBusca = cardAluno.dataset.id
             renderizarInformacoesAluno(idParaBusca)
         })
         listaAlunos.appendChild(cardAluno)
@@ -61,8 +61,64 @@ export async function renderizarTelaAlunos(id_curso){
     conteudoMainAtual.replaceChildren(tituloCurso, listaAlunos)
 }
 
-export function renderizarInformacoesAluno(idParaBusca){
+export async function renderizarInformacoesAluno(idParaBusca){
+    
+    conteudoMainAtual.replaceChildren(); 
+    conteudoMainAtual.className = 'layout-detalhes';
 
+    const dadosAluno = await obterInformacaoAlunoEspecifico(idParaBusca);
+
+    if (!dadosAluno || !dadosAluno.desempenho) {
+        console.error("Erro: Dados do aluno ou desempenho não encontrados");
+        return;
+    }
+    const containerPerfil = document.createElement('aside');
+    containerPerfil.classList.add('perfil-aluno-container');
+    
+    const foto = document.createElement('img');
+    foto.src = dadosAluno.foto || '../img/boneco-exemplo.png';
+    
+    const nome = document.createElement('h2');
+    nome.textContent = dadosAluno.nome;
+
+    containerPerfil.append(foto, nome);
+
+
+const containerGrafico = document.createElement('section');
+containerGrafico.classList.add('grafico-container');
+
+dadosAluno.desempenho.forEach(item => {
+  
+    const torre = document.createElement('div');
+    torre.classList.add('grafico-torre');
+
+    
+    const barra = document.createElement('div');
+    barra.classList.add('barra-valor');
+    
+ 
+    const nota = item.valor;
+    barra.style.height = `${nota}%`;
+
+  
+    if (nota > 90) {
+        barra.style.backgroundColor = '#3347B0'; 
+    } else if (nota >= 75) {
+        barra.style.backgroundColor = '#FFC107'; 
+    } else {
+        barra.style.backgroundColor = '#E91E63'; 
+    }
+
+
+    const sigla = document.createElement('span');
+    sigla.classList.add('sigla-materia');
+    sigla.textContent = item.categoria;
+
+
+    torre.append(barra, sigla);
+    containerGrafico.appendChild(torre);
+});
+    conteudoMainAtual.append(containerPerfil, containerGrafico);
 }
 
 function configuracaoBotoesHome() {
